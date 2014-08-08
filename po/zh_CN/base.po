@@ -2930,6 +2930,48 @@ msgstr "是"
 msgid "« Back"
 msgstr "« 后退"
 
+msgid "WPS Pushbutton Config"
+msgstr "启用WPS"
+
+msgid "filebrowser"
+msgstr "文件浏览器"
+
+msgid "WebShell"
+msgstr "网页终端"
+
+msgid "Load Balancing"
+msgstr "负载均衡"
+
+msgid "Interface Status"
+msgstr "接口状态"
+
+msgid "Detailed Status"
+msgstr "详细状态"
+
+msgid "Advanced"
+msgstr "高级"
+
+msgid "Members"
+msgstr "成员"
+
+msgid "Policies"
+msgstr "政策"
+
+msgid "Rules"
+msgstr "规则"
+
+msgid "Hotplug Script"
+msgstr "Hotplug脚本"
+
+msgid "MWAN3 Config"
+msgstr "MWAN3配置文件"
+
+msgid "Network Config"
+msgstr "网络配置文件"
+
+msgid "Troubleshooting"
+msgstr "故障排除信息"
+
 #~ msgid "Ad-hoc mode"
 #~ msgstr "Ad-hoc模式"
 
