@@ -260,6 +260,23 @@ $(eval $(call application,qos,Quality of Service configuration module,\
 
 $(eval $(call application,commands,LuCI Shell Command Module))
 
+#$(eval $(call application,qos_gargoyle,LuCI Support for  qos_gargoyle,\
+	+PACKAGE_luci-app-qos_gargoyle:gargoyle-firewall-util +PACKAGE_luci-app-qos_gargoyle:libericstools +PACKAGE_luci-app-qos_gargoyle:libiptbwctl +PACKAGE_luci-app-qos_gargoyle:qos-gargoyle))
+
+$(eval $(call application,macvlan-multiwan,LuCI Support for macvlan with multiwan,\
+	+PACKAGE_luci-app-macvlan-multiwan:kmod-macvlan +PACKAGE_luci-app-macvlan-multiwan:luci-app-multiwan))
+$(eval $(call application,macvlan,LuCI Support for macvlan,\
+	+PACKAGE_luci-app-macvlan:kmod-macvlan +PACKAGE_luci-app-macvlan:luci-app-mwan3))
+$(eval $(call application,shadowsocks,LuCI Support for shadowsocks,\
+	+PACKAGE_luci-app-shadowsocks:shadowsocks-libev))
+$(eval $(call application,vsftpd,FTP Server,\
+	+PACKAGE_luci-app-vsftpd:vsftpd-pam))
+$(eval $(call application,filebrowser,File browser tool module,\
+	+PACKAGE_luci-app-filebrowser))
+$(eval $(call application,webshell,webshell configuration module,\
+	 +PACKAGE_luci-app-webshell))
+$(eval $(call application,cpulimit,CPULIMIT configuration module,\
+	 +PACKAGE_luci-app-cpulimit:cpulimit))
 
 ### Themes ###
 define theme
@@ -286,6 +303,10 @@ endef
 
 $(eval $(call theme,openwrt,OpenWrt.org))
 $(eval $(call theme,bootstrap,Bootstrap Theme (default)))
+$(eval $(call theme,lucixeye,Luci XEYE Theme))
+$(eval $(call theme,openwrtcn,Luci OpenWrt CN Theme))
+$(eval $(call theme,oxygen,oxygen Theme,\
+       oxygen ))
 
 
 ### Translations ###
