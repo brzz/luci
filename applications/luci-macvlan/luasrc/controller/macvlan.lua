@@ -13,4 +13,12 @@ function index()
 	local page
 	page = entry({"admin", "network", "macvlan"}, cbi("macvlan"), _("Virtual WAN"), 45)
 	page.dependent = true
+
+	page = entry({"admin", "network", "macvlan_rediag"}, call("rediag"), nil)
+	page.leaf = true
+
+end
+
+function rediag()
+	os.execute("/tmp/macvlan_ifdown.sh && sleep 5 && /tmp/macvlan_ifup.sh")
 end

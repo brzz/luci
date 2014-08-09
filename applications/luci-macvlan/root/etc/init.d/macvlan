@@ -9,7 +9,7 @@ pppoe_metric=$(uci get network.wan.metric)
 wannum=$(uci get macvlan.config.wannum)
 ENABLED=$(uci get macvlan.config.enabled)
 genrmcfg() {
-	echo '#!/bin/sh' >> /tmp/rmcfg.sh
+	echo '#!/bin/sh' > /tmp/rmcfg.sh
 	for i in $(seq 1 $wannum)
 	do
 		echo "uci del network.vwan${i}
@@ -23,6 +23,23 @@ ip link delete vth${i} type macvlan" >> /tmp/rmcfg.sh
 	echo "uci commit " >> /tmp/rmcfg.sh
 	chmod +x /tmp/rmcfg.sh	
 }
+
+genifsh() {
+	echo '#!/bin/sh' > /tmp/macvlan_ifdown.sh
+	echo 'ifdown wan' >> /tmp/macvlan_ifdown.sh
+	echo '#!/bin/sh' > /tmp/macvlan_ifup.sh
+	echo 'ifup wan &' >> /tmp/macvlan_ifup.sh
+
+
+	for i in $(seq 1 $wannum)
+	do
+		echo "ifdown vwan${i}" >> /tmp/macvlan_ifdown.sh
+		echo "ifup vwan${i} &" >> /tmp/macvlan_ifup.sh
+	done
+	chmod +x /tmp/macvlan_ifdown.sh
+	chmod +x /tmp/macvlan_ifup.sh	
+}
+
 
 
 start() {
@@ -49,6 +66,7 @@ start() {
 		ifconfig vth$i up
 	done
 	genrmcfg
+	genifsh
 
 }
 
