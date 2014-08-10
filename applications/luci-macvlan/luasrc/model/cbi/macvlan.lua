@@ -30,7 +30,7 @@ pppnum.datatype = "range(0,20)"
 pppnum.optional = false
 ]]--
 
-s:option(DummyValue,"opennewwindow" ,"<br /><p align=\"justify\"><script type=\"text/javascript\"></script><input type=\"button\" class=\"cbi-button cbi-button-apply\" value=\""..translate("rediag")..\" onclick=\"window.open('"..luci.dispatcher.build_url("admin", "network", "macvlan_rediag").."')\" /></p>")
+s:option(DummyValue,"opennewwindow" ,"<br /><p align=\"justify\"><script type=\"text/javascript\"></script><input type=\"button\" class=\"cbi-button cbi-button-apply\" value=\""..translate("rediag").."\" onclick=\"window.open('"..luci.dispatcher.build_url("admin", "network", "macvlan_rediag").."')\" /></p>")
 
 local apply = luci.http.formvalue("cbi.apply")
 if apply then

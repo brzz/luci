@@ -20,7 +20,7 @@ msgstr "创建虚拟WAN接口"
 msgid "Here you can create some virtual WAN interfaces with MACVLAN driver."
 msgstr "在这里，你可以使用Macvlan驱动创建虚拟WAN接口。"
 
-msgid "Here you can create some virtual WAN interfaces with MACVLAN driver.Set wan metric first!<br />Connected interface count: "
+msgid "Here you can create some virtual WAN interfaces with MACVLAN driver.Set wan metric first!<br />Connected interface count:"
 msgstr "在这里，你可以使用Macvlan驱动创建虚拟WAN接口。请务必先设置WAN口的网关跃点（通常可以填写 40 ）。<br />已连接的WAN接口数量： "
 
 msgid "Enable"

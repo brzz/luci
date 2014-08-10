@@ -1,0 +1,27 @@
+#!/bin/sh
+#PPP detect script. written by 981213
+. /lib/functions.sh
+
+[ -f /etc/config/macvlan ] || {
+	echo "You are missing configuration file /etc/config/macvlan"
+	return 1
+}
+
+config_load "macvlan"
+config_get ENABLED config enabled
+[ "$ENABLED" == "0" ] && {
+	echo "syncdiag disabled."
+	return 0
+}
+
+PPPUPNUM=$(mwan3 status | grep -c "is online (tracking active)")
+logger "$PPPUPNUM interfaces are online."
+if [ "$PPPUPNUM" -lt 1 ]
+then
+	logger "Rediag."
+	/etc/init.d/ppp_syncdiag restart | logger
+	logger "completed."
+else
+	logger "OK."
+fi
+return 0

@@ -20,5 +20,5 @@ function index()
 end
 
 function rediag()
-	os.execute("/tmp/macvlan_ifdown.sh && sleep 5 && /tmp/macvlan_ifup.sh")
+	os.execute("/etc/init.d/ppp_syncdiag restart")
 end
