@@ -26,9 +26,9 @@ ip link delete vth${i} type macvlan" >> /tmp/rmcfg.sh
 
 genifsh() {
 	echo '#!/bin/sh' > /tmp/macvlan_ifdown.sh
-	echo 'ifdown wan' >> /tmp/macvlan_ifdown.sh
+	[ "$wansw" == "1" ] && echo 'ifdown wan' >> /tmp/macvlan_ifdown.sh
 	echo '#!/bin/sh' > /tmp/macvlan_ifup.sh
-	echo 'ifup wan &' >> /tmp/macvlan_ifup.sh
+	[ "$wansw" == "1" ] && echo 'ifup wan &' >> /tmp/macvlan_ifup.sh
 
 
 	for i in $(seq 1 $wannum)

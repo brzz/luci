@@ -24,6 +24,9 @@ wannum = s:option(Value, "wannum", translate("Number of virtual WAN"))
 wannum.datatype = "range(0,20)"
 wannum.optional = false
 
+wansw = s:option(Flag, "wansw", translate("Use WAN to diag"), translate("Uncheck this if you use a VLAN interface."))
+wansw.rmempty = false
+
 --[[
 pppnum = s:option(Value, "pppnum", translate("Number of PPP diag"))
 pppnum.datatype = "range(0,20)"

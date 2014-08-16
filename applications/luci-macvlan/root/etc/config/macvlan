@@ -1,3 +1,4 @@
 config macvlan 'config'
 	option 'enabled'	'0'
-	option 'wannum'		'5'
+	option 'wannum'	'5'
+	option 'wansw'	'1'
