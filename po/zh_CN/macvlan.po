@@ -40,3 +40,13 @@ msgstr "使用WAN口进行拨号"
 
 msgid "Uncheck this if you use a VLAN interface."
 msgstr "如果你使用的是VLAN接口（WAN对应的接口是ethX.X）,请取消勾选这个选项。"
+
+msgid "Enable auto reconnect"
+msgstr "断线自动重连"
+
+msgid "Minimnum connected interface"
+msgstr "最低在线接口数"
+
+msgid "Rediag if the number of connected interfaces is less then this."
+msgstr "如果在线接口数低于这个数值，将会自动重新拨号。"
+

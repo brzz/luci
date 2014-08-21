@@ -27,11 +27,13 @@ wannum.optional = false
 wansw = s:option(Flag, "wansw", translate("Use WAN to diag"), translate("Uncheck this if you use a VLAN interface."))
 wansw.rmempty = false
 
---[[
-pppnum = s:option(Value, "pppnum", translate("Number of PPP diag"))
-pppnum.datatype = "range(0,20)"
-pppnum.optional = false
-]]--
+diagchk = s:option(Flag, "diagchk", translate("Enable auto reconnect"))
+diagchk.rmempty = false
+
+diagnum = s:option(Value, "diagnum", translate("Minimnum connected interface"),translate("Rediag if the number of connected interfaces is less then this."))
+diagnum.datatype = "range(0,20)"
+diagnum.optional = false
+
 
 s:option(DummyValue,"opennewwindow" ,"<br /><p align=\"justify\"><script type=\"text/javascript\"></script><input type=\"button\" class=\"cbi-button cbi-button-apply\" value=\""..translate("rediag").."\" onclick=\"window.open('"..luci.dispatcher.build_url("admin", "network", "macvlan_rediag").."')\" /></p>")
 

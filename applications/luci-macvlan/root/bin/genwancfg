@@ -14,6 +14,7 @@ sh /tmp/rmcfg.sh
 
 [ "$ENABLED" == "0" ] && {
 #	echo "MACVLAN is disabled.STOP generating anythong."
+	uci commit
 	/etc/init.d/network restart
 	/etc/init.d/firewall restart
 	/etc/init.d/mwan3 restart
