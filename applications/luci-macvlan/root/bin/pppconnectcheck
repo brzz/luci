@@ -15,7 +15,7 @@ config_get ENABLED config enabled
 	echo "diag check disabled."
 	return 0
 }
-[ $(ps | grep -c "pppconnectcheck") -gt 1 ] && logger "another checker is running.exit." && return 1
+[ $(ps | grep -c "pppconnectcheck") -gt 3 ] && logger "another checker is running.exit." && return 1
 sleep 30
 PPPUPNUM=$(mwan3 status | grep -c "is online (tracking active)")
 logger "$PPPUPNUM interfaces are online."
