@@ -1,0 +1,28 @@
+﻿<HTML>
+<HEAD>
+<TITLE>升级</TITLE>
+<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="TEXT/HTML;CHARSER=UTF-8">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript">
+function upload_file(){
+if( document.getElementById('FILE1').value == '' ){
+alert("请选择文件！");
+return false;
+}
+
+document.getElementById('uploadInfo').innerHTML = '' ;
+document.getElementById('uploadInfo').innerHTML = '<img src="images/wait.gif"><br>数据上传中，请稍候……' ;
+
+document.getElementById('form1').submit();
+}
+</script>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<FORM METHOD="POST" id="form1" name="form1" ENCTYPE="multipart/form-data" ACTION="cgi-bin/uploadcgi.cgi">
+选择文件：<INPUT TYPE="FILE" NAME="FILE1" id="FILE1" class="btn"><INPUT TYPE="button" onclick="upload_file()" VALUE="上传" class="btn"><br>
+<center>
+<div id="uploadInfo"></div>
+</center>
+</FORM>
+</BODY>
+</HTML>
