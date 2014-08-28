@@ -42,7 +42,7 @@ function cmd_run()
 		newpath=path
 	end
 
-	local pathcmd = io.popen("ls "..newpath.."2>&1","r")
+	local pathcmd = io.popen("ls "..newpath,"r")
 	local ls = pathcmd:read("*a")
 	pathcmd:close()
 	
