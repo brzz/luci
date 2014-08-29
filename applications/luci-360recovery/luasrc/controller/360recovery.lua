@@ -101,8 +101,7 @@ function action_360recovery()
 				msg   = luci.i18n.translate("The system is flashing now.<br /> DO NOT POWER OFF THE DEVICE!<br /> Wait a few minutes before you try to reconnect. It might be necessary to renew the address of your computer to reach the device again, depending on your settings."),
 				addr  = "192.168.1.1"
 			})
-			os.execute("killall dropbear uhttpd && sleep 1")
-			os.execute("mtd -r write "..image_tmp_dec.." firmware && reboot &")
+			os.execute("killall uhttpd dropbear && sleep 1 && mtd -r write "..image_tmp_dec.." firmware && reboot &")
 		end
 	else
 		--
