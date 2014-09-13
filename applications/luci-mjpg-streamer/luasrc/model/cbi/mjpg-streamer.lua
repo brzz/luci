@@ -34,8 +34,6 @@ resolution.rmempty = false
 fps = s:option(Value, "fps", translate("FPS"))
 fps.rmempty = false
 
-s:option(Flag, "useyuv", translate("Use YUV format"))
-
 www = s:option(Value, "www", translate("Web folder"))
 www.rmempty = false
 
