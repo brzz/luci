@@ -13,12 +13,12 @@ genrmcfg() {
 	for i in $(seq 1 $wannum)
 	do
 		echo "uci del network.vwan${i}
-uci del dhcp.vth${i}
+uci del dhcp.macvlan${i}
 uci del_list firewall.@zone[1].network=vwan${i}
 uci del mwan3.vwan${i}
 uci del mwan3.vwan${i}_m1_w1
 uci del_list mwan3.balanced.use_member=vwan${i}_m1_w1
-ip link delete vth${i} type macvlan" >> /tmp/rmcfg.sh
+ip link delete macvlan${i}" >> /tmp/rmcfg.sh
 	done
 	echo "uci commit " >> /tmp/rmcfg.sh
 	chmod +x /tmp/rmcfg.sh	
@@ -61,9 +61,9 @@ start() {
 	ifname=$(uci get network.wan.ifname)
 	for i in $(seq 1 $PORTNUM)
 	do
-		ip link add link $ifname vth$i type macvlan
-		ifconfig vth$i hw ether $(echo $(cat /sys/class/net/$ifname/address|awk -F ":" '{print $1":"$2":"$3":"$4":"$5":" }')$(echo "" | awk -F ":" '{printf("%X\n", 16+i);}' i=$i))
-		ifconfig vth$i up
+		ip link add link $ifname type macvlan
+		ifconfig macvlan$i hw ether $(echo $(cat /sys/class/net/$ifname/address|awk -F ":" '{print $1":"$2":"$3":"$4":"$5":" }')$(echo "" | awk -F ":" '{printf("%X\n", 16+i);}' i=$i))
+		ifconfig macvlan$i up
 	done
 	genrmcfg
 	genifsh

@@ -26,15 +26,15 @@ for i in $(seq 1 $wannum)
 do
 	#gen wan if
 	uci set network.vwan${i}=interface
-	uci set network.vwan${i}.ifname=vth${i}
+	uci set network.vwan${i}.ifname=macvlan${i}
 	uci set network.vwan${i}.proto=pppoe
 	uci set network.vwan${i}.username=$pppoe_name
 	uci set network.vwan${i}.password=$pppoe_pw
 	uci set network.vwan${i}.metric=$((pppoe_metric+i))
 	#gen /etc/config/dhcp
-	uci set dhcp.vth${i}=dhcp 
-	uci set dhcp.vth${i}.interface=vwan${i}
-	uci set dhcp.vth${i}.ignore=1 
+	uci set dhcp.macvlan${i}=dhcp 
+	uci set dhcp.macvlan${i}.interface=vwan${i}
+	uci set dhcp.macvlan${i}.ignore=1 
 	#gen firewall
 	uci add_list firewall.@zone[1].network=vwan$i
 	#gen mwan3_interface
