@@ -59,9 +59,9 @@ start() {
 
 	config_get PORTNUM config wannum
 	ifname=$(uci get network.wan.ifname)
-	for i in $(seq 1 $PORTNUM)
+	for i in $(seq 0 $PORTNUM)
 	do
-		ip link add link $ifname type macvlan
+		ip link add link $ifname name macvlan$i type macvlan
 		ifconfig macvlan$i hw ether $(echo $(cat /sys/class/net/$ifname/address|awk -F ":" '{print $1":"$2":"$3":"$4":"$5":" }')$(echo "" | awk -F ":" '{printf("%X\n", 16+i);}' i=$i))
 		ifconfig macvlan$i up
 	done
