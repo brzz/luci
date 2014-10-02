@@ -64,5 +64,4 @@ uci commit
 /etc/init.d/network restart
 /etc/init.d/firewall restart
 /etc/init.d/mwan3 restart
-sleep 1
-/etc/init.d/ppp_syncdiag restart
+/bin/pppconnectcheck &

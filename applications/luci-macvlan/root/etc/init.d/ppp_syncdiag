@@ -41,11 +41,14 @@ stop() {
 
 	echo "正在停止所有接口……"
 	/tmp/macvlan_ifdown.sh
-	sleep 5
 	echo "所有接口已经停止。"
 }
+restart()
+{
+    echo "正在重新并发拨号......"
+    killall -9 pppd
+    return 0
+}
 boot() {
-	stop
-	start
-	return
+    /bin/pppconnectcheck
 }
