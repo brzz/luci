@@ -49,6 +49,13 @@ restart()
     killall -9 pppd
     return 0
 }
+restart2()
+{
+    stop
+    sleep 2
+    start 
+    return 0
+}
 boot() {
-    /bin/pppconnectcheck
+    /bin/pppconnectcheck &
 }

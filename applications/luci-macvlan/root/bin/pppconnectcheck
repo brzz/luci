@@ -22,7 +22,8 @@ logger "$PPPUPNUM interfaces are online."
 if [ "$PPPUPNUM" -lt $DIAGNUM ]
 then
 	logger "Rediag."
-	[ "$ENABLED" == "1" ] && /etc/init.d/ppp_syncdiag restart | logger
+	[ "$ENABLED" == "1" ] && [ $(ps | grep -c "pppd") == "1" ] && /etc/init.d/ppp_syncdiag restart2 | logger
+    [ "$ENABLED" == "1" ] && /etc/init.d/ppp_syncdiag restart | logger
 	[ "$ENABLED" == "0" ] && ifdown wan && ifup wan
 	logger "completed."
 else
