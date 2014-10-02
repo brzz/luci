@@ -282,7 +282,9 @@ $(eval $(call application,360recovery,A tool to flash 360 encrypted rom,\
 $(eval $(call application,usb-printer,USB Printer Share via TCP/IP,\
 	+PACKAGE_luci-app-usb-printer:p910nd))
 $(eval $(call application,mjpg-streamer,mjpg streamer luci page,\
-	+PACKAGE_luci-app-usb-printer:mjpg-streamer))
+	+PACKAGE_luci-app-mjpg-streamer:mjpg-streamer))
+$(eval $(call application,n2n_v2,n2n_v2 luci page,\
+	+PACKAGE_luci-app-n2n_v2:n2n_v2))
 
 
 ### Themes ###
